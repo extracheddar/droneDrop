@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
 	public Text scoreText;
-	public Button playPauseBtn;
+	public Button playPauseButton;
+	public Button restartButton;
 	public Sprite imagePlay;
 	public Sprite imagePause;
 
@@ -26,7 +28,13 @@ public class GameController : MonoBehaviour
 
 	public void PlayPauseToggle(){
 		Time.timeScale = (Time.timeScale == 0) ? 1 : 0;
-		playPauseBtn.image.sprite = (playPauseBtn.image.sprite == imagePause) ? imagePlay : imagePause;
+		playPauseButton.image.sprite = (playPauseButton.image.sprite == imagePause) ? imagePlay : imagePause;
+		restartButton.gameObject.SetActive (Time.timeScale == 0);
+	}
+
+	public void Restart(){
+		Time.timeScale = 1;
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
 	}
 
 }
