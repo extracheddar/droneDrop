@@ -16,7 +16,7 @@ public class PackageCollision : MonoBehaviour
 	private void OnTriggerEnter(Collider other) 
 	{
 		if (other.gameObject.CompareTag(TagConstants.PACKAGE)) {
-			other.gameObject.GetComponent<BoxCollider> ().enabled = false;
+			other.gameObject.tag = TagConstants.UNTAGGED;
 			GetGameController ().UpdateScore (points);
 		}
 	}
