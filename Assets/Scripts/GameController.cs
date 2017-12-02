@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -8,14 +6,6 @@ public class GameController : MonoBehaviour
 	public Text scoreText;
 
 	private int score;
-
-	void Start () {
-		
-	}
-
-	void Update () {
-		
-	}
 
 	public int GetScore () {
 		return score;
@@ -25,6 +15,10 @@ public class GameController : MonoBehaviour
 		score += points;
 		scoreText.text = "Score: " + score;
 		return score;
+	}
+
+	public void EndGame () {
+		CommonObjects.GetThrust().DisableThrust();
 	}
 
 }
