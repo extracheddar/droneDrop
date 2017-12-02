@@ -5,7 +5,7 @@ public class PackageCollision : MonoBehaviour
 {
 	private GameController gameController;
 
-	public int points = 0;
+	public int points;
 
 	private GameController GetGameController () {
 		return gameController ?? (gameController = GameObject.FindGameObjectWithTag(TagConstants.GAME_CONTROLLER)
@@ -14,9 +14,7 @@ public class PackageCollision : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other) 
 	{
-		GetGameController().AddScore(50);
-		Debug.Log ("collision:" + gameObject.tag);
-		Debug.Log ("add " + points + " points");
-
+		GetGameController().AddScore(points);
+		Debug.Log(GetGameController().GetScore());
 	}
 }
