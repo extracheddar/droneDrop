@@ -605,7 +605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   latSpeed: 100
-  forwardSpeed: 55
+  forwardSpeed: 45
 --- !u!54 &678932677
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -849,6 +849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5955ac4a8a44706b9505d18796750b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
 --- !u!1001 &909137600
 Prefab:
   m_ObjectHideFlags: 0
