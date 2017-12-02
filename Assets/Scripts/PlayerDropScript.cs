@@ -1,36 +1,38 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDropScript : MonoBehaviour
 {
 	public Transform packageSpawn;
 	public GameObject packagePrefab;
-	public float forwardSpeed;
 	public int rateOfDrop;
 	private DateTime lastDropped;
+	private Rigidbody rigidBody;
+
+	void Start () {
+		rigidBody = GetComponent<Rigidbody>();
+	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			if (canDropAnotherPackage())
+			if (CanDropAnotherPackage())
 			{
-				dropPackage();
+				DropPackage();
 			}
 		}
 	}
 
-	void dropPackage () {
+	void DropPackage () {
+		lastDropped = DateTime.Now;
 		GameObject package = Instantiate(packagePrefab, packageSpawn.position, packageSpawn.rotation);
 		Package packageScript = (Package) package.GetComponent(typeof(Package));
-		packageScript.forwardThrust = forwardSpeed;
+		packageScript.ApplyForce(rigidBody.velocity);
 		Destroy(package, 10f);
-		lastDropped = DateTime.Now;
 	}
 
-	bool canDropAnotherPackage () {
+	bool CanDropAnotherPackage () {
 		return lastDropped <= DateTime.Now.Subtract (TimeSpan.FromMilliseconds (rateOfDrop));
 	}
 }

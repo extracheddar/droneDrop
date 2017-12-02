@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class Package : MonoBehaviour
 {
-	public float forwardThrust;
-	
-	// Update is called once per frame
-	void Update () {
-		Debug.Log(forwardThrust);
-		if (forwardThrust <= 0)
+	private Rigidbody rigidBody;
+
+	public void ApplyForce (Vector3 force) {
+		GetRigidBody().AddForce(force, ForceMode.Impulse);
+	}
+
+	private Rigidbody GetRigidBody () {
+		if (rigidBody == null)
 		{
-			forwardThrust = 0;
+			rigidBody = GetComponent<Rigidbody>();
 		}
-		else
-		{
-			transform.Translate(Vector3.up * (Time.deltaTime * forwardThrust));
-			forwardThrust = forwardThrust - 1.25f * Time.deltaTime;			
-		}
-		
+
+		return rigidBody;
 	}
 }
