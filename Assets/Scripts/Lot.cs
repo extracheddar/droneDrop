@@ -4,5 +4,13 @@ using UnityEngine;
 
 public class Lot : MonoBehaviour
 {
-	public bool dropZoneEnabled;	
+	public bool dropZoneEnabled;
+
+	public void UpdateDropZones (bool enabledFlag) {
+		dropZoneEnabled = enabledFlag;
+		foreach (BoxCollider boxCollider in GetComponentsInChildren<BoxCollider>())
+		{
+			boxCollider.enabled = enabledFlag;
+		}
+	}	
 }
