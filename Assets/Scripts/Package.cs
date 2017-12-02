@@ -5,7 +5,6 @@ using UnityEngine;
 public class Package : MonoBehaviour
 {
 	private Rigidbody rigidBody;
-	private GameController gameController;
 	private bool hasCollided;
 	
 	public void ApplyForce (Vector3 force) {
