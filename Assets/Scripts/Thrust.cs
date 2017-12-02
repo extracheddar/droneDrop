@@ -8,13 +8,17 @@ public class Thrust : MonoBehaviour {
 
     public float latSpeed = 5f;
     public float forwardSpeed = 10f;
+    private bool generatingThrust = true;
 
     void Start () {
         rb = GetComponent<Rigidbody>();
     }
 
     void Update () {
-        rb.AddForce (GetMovement());
+        if (generatingThrust)
+        {
+            rb.AddForce (GetMovement());            
+        }
     }
 
     public Vector3 GetMovement () {
@@ -25,5 +29,13 @@ public class Thrust : MonoBehaviour {
             right = 1f;
         }
         return new Vector3 (right * latSpeed, forwardSpeed, 0.0f);
+    }
+
+    public void DisableThrust () {
+        generatingThrust = false;
+    }
+
+    public void EnableThrust () {
+        generatingThrust = true;
     }
 }
