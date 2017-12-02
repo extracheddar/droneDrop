@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - House
-  - Yard
+  - DropZone
   layers:
   - Default
   - TransparentFX

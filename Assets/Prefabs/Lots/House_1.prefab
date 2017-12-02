@@ -35,9 +35,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4889233142260026}
   - component: {fileID: 65267213103997762}
+  - component: {fileID: 114910971988146896}
   m_Layer: 0
   m_Name: YardCollider
-  m_TagString: Yard
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,9 +68,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4517386422708900}
   - component: {fileID: 65119482242452776}
+  - component: {fileID: 114086826100558812}
   m_Layer: 0
   m_Name: HouseCollider
-  m_TagString: House
+  m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1036975031446748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55, y: 0, z: -1}
+  m_LocalPosition: {x: -55, y: 100.9, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4488223671558484}
@@ -153,6 +155,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114086826100558812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973568227521638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2f3d08e17504a7387388d80fa26ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 50
+--- !u!114 &114910971988146896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1362155897663000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2f3d08e17504a7387388d80fa26ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 100
 --- !u!212 &212807708668208898
 SpriteRenderer:
   m_ObjectHideFlags: 1
