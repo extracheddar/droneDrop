@@ -12,13 +12,9 @@ public class FollowPlayer : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag ("Player");
     }
 
-    void Update () {
-		
-    }
-
     void LateUpdate ()
     {
-        transform.position = new Vector3 (transform.position.x, transform.position.y, player.transform.position.z + offset);
+        transform.position = new Vector3 (transform.position.x, player.transform.position.y + offset, transform.position.z);
     }
 
 }

@@ -20,7 +20,7 @@ public class Thrust : MonoBehaviour {
         } else if (Input.GetKey (KeyCode.RightArrow)) {
             right = 1f;
         }
-        Vector3 movement = new Vector3 (right * latSpeed, 0.0f, forwardSpeed);
+        Vector3 movement = new Vector3 (right * latSpeed, forwardSpeed, 0.0f);
         rb.AddForce (movement);
     }
 }
