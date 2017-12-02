@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDropScript : MonoBehaviour {
+public class PlayerDropScript : MonoBehaviour
+{
+	public Transform packageSpawn;
+	public GameObject packagePrefab;
+	public float forwardSpeed;
 
 	// Use this for initialization
 	void Start () {
@@ -13,11 +17,16 @@ public class PlayerDropScript : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
+			Debug.Log("Key down!");
 			dropPackage();
 		}
 	}
 
 	void dropPackage () {
-		
+		GameObject package = Instantiate(packagePrefab, packageSpawn.position, packageSpawn.rotation);
+		Package packageScript = (Package) package.GetComponent(typeof(Package));
+		Debug.Log(packageScript);
+		packageScript.forwardThrust = forwardSpeed;
+		Destroy(package, 10f);
 	}
 }

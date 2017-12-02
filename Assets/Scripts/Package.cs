@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class Package : MonoBehaviour
 {
-
-	private float forwardThrust;
-
-	// Use this for initialization
-	void Start () {
-		forwardThrust = 5f;
-		//TODO set forward thrust
-		//TODO find way to have thrust decay
-	}
+	public float forwardThrust;
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log(forwardThrust);
 		if (forwardThrust <= 0)
 		{
 			forwardThrust = 0;
@@ -23,7 +16,7 @@ public class Package : MonoBehaviour
 		else
 		{
 			transform.Translate(Vector3.up * (Time.deltaTime * forwardThrust));
-			forwardThrust = forwardThrust - 1f * Time.deltaTime;			
+			forwardThrust = forwardThrust - 1.25f * Time.deltaTime;			
 		}
 		
 	}
