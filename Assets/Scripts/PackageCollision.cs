@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class PackageCollision : MonoBehaviour
 {
-	public bool dropZoneEnabled = true;
 	
 	private GameController gameController;
-	private Lot lot;
 
 	public int points;
 
@@ -15,22 +13,12 @@ public class PackageCollision : MonoBehaviour
 			       .GetComponent<GameController>());
 	}
 
-	private Lot GetLot () {
-		return lot ?? (lot = GetComponentInParent<Lot>());
-	}
-
 	private void OnTriggerEnter(Collider other) 
 	{
-		if (!DropZoneEnabled())
-		{
-			return;
+		if (other.gameObject.tag == "Package") {
+			other.gameObject.GetComponent<BoxCollider> ().enabled = false;
+			GetGameController ().UpdateScore (points);
 		}
-		
-		GetGameController().UpdateScore(points);
-		Debug.Log(GetGameController().GetScore());
 	}
 
-	private bool DropZoneEnabled () {
-		return dropZoneEnabled && GetLot().dropZoneEnabled;
-	}
 }
