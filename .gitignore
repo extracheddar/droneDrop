@@ -36,3 +36,6 @@ sysinfo.txt
 
 # Jetbrains
 .idea
+
+# :(
+.DS_Store
