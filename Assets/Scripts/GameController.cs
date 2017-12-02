@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+	public Text scoreText;
+
 	private int score;
 
-	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		
 	}
@@ -20,11 +21,10 @@ public class GameController : MonoBehaviour
 		return score;
 	}
 
-	public void AddScore (int amount) {
-		score += amount;
+	public int UpdateScore(int points){
+		score += points;
+		scoreText.text = "Score: " + score;
+		return score;
 	}
 
-	public void RemoveScore (int amount) {
-		AddScore(- amount);
-	}
 }
