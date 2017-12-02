@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class PlayerDropScript : MonoBehaviour
 	public Transform packageSpawn;
 	public GameObject packagePrefab;
 	public float forwardSpeed;
+	public int rateOfDrop;
+	private DateTime lastDropped;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +21,10 @@ public class PlayerDropScript : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			Debug.Log("Key down!");
-			dropPackage();
+			if (canDropAnotherPackage())
+			{
+				dropPackage();
+			}
 		}
 	}
 
@@ -28,5 +34,10 @@ public class PlayerDropScript : MonoBehaviour
 		Debug.Log(packageScript);
 		packageScript.forwardThrust = forwardSpeed;
 		Destroy(package, 10f);
+		lastDropped = DateTime.Now;
+	}
+
+	bool canDropAnotherPackage () {
+		return lastDropped <= DateTime.Now.Subtract (TimeSpan.FromMilliseconds (rateOfDrop));
 	}
 }
