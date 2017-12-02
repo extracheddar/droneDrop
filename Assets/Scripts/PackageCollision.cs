@@ -1,23 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
-public class PackageCollision : MonoBehaviour {
+public class PackageCollision : MonoBehaviour
+{
+	private GameController gameController;
 
-	public int points = 0;
-	
-	void Start () {
-		
+	public int points;
+
+	private GameController GetGameController () {
+		return gameController ?? (gameController = GameObject.FindGameObjectWithTag(TagConstants.GAME_CONTROLLER)
+			       .GetComponent<GameController>());
 	}
 
-	void Update () {
-		
-	}
-
-	void OnTriggerEnter(Collider other) 
+	private void OnTriggerEnter(Collider other) 
 	{
-		Debug.Log ("collision:" + gameObject.tag);
-		Debug.Log ("add " + points + " points");
-
+		GetGameController().AddScore(points);
+		Debug.Log(GetGameController().GetScore());
 	}
 }

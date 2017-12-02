@@ -13,33 +13,6 @@ public class Package : MonoBehaviour
 	}
 
 	private Rigidbody GetRigidBody () {
-		if (rigidBody == null)
-		{
-			rigidBody = GetComponent<Rigidbody>();
-		}
-
-		return rigidBody;
-	}
-
-	private GameController GetGameController () {
-		if (gameController == null)
-		{
-			gameController = GameObject.FindGameObjectWithTag("GameController")
-				.GetComponent<GameController>();			
-		}
-
-		return gameController;
-	}
-
-	private void OnCollisionEnter (Collision other) {
-		if (hasCollided)
-		{
-			return;
-		}
-		
-		hasCollided = true;
-		
-		GetGameController().AddScore(50);
-		Debug.Log(GetGameController().GetScore());
+		return rigidBody ?? (rigidBody = GetComponent<Rigidbody>());
 	}
 }

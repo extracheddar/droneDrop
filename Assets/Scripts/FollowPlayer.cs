@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour {
@@ -9,7 +10,7 @@ public class FollowPlayer : MonoBehaviour {
     private GameObject player;
 
     void Start () {
-        player = GameObject.FindGameObjectWithTag ("Player");
+        player = GameObject.FindGameObjectWithTag (TagConstants.PLAYER);
     }
 
     void LateUpdate ()
