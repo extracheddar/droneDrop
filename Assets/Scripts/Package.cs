@@ -4,18 +4,44 @@ using UnityEngine;
 
 public class Package : MonoBehaviour
 {
-	public float forwardThrust;
+	private Rigidbody rigidBody;
+	private GameController gameController;
+	private bool hasCollided = false;
+	
+	public void ApplyForce (Vector3 force) {
+		GetRigidBody().AddForce(force, ForceMode.Impulse);
+	}
 
-	void Update () {
-		if (forwardThrust <= 0)
+	private Rigidbody GetRigidBody () {
+		if (rigidBody == null)
 		{
-			forwardThrust = 0;
+			rigidBody = GetComponent<Rigidbody>();
 		}
-		else
+
+		return rigidBody;
+	}
+
+	private GameController GetGameController () {
+		if (gameController == null)
 		{
-			transform.Translate(Vector3.up * (Time.deltaTime * forwardThrust));
-			forwardThrust = forwardThrust - 1.25f * Time.deltaTime;			
+			gameController = GameObject.FindGameObjectWithTag("GameController")
+				.GetComponent<GameController>();			
+		}
+
+		return gameController;
+	}
+
+	private void OnCollisionEnter (Collision other) {
+		if (hasCollided)
+		{
+			return;
 		}
 		
+		hasCollided = true;
+		Debug.Log("Collision!");
+		Debug.Log(other.gameObject.tag);
+		
+		GetGameController().AddScore(50);
+		Debug.Log(GetGameController().GetScore());
 	}
 }

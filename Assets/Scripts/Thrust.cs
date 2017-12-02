@@ -14,13 +14,16 @@ public class Thrust : MonoBehaviour {
     }
 
     void Update () {
+        rb.AddForce (GetMovement());
+    }
+
+    public Vector3 GetMovement () {
         float right = 0f;
         if (Input.GetKey (KeyCode.LeftArrow)) {
             right = -1f;
         } else if (Input.GetKey (KeyCode.RightArrow)) {
             right = 1f;
         }
-        Vector3 movement = new Vector3 (right * latSpeed, forwardSpeed, 0.0f);
-        rb.AddForce (movement);
+        return new Vector3 (right * latSpeed, forwardSpeed, 0.0f);
     }
 }
