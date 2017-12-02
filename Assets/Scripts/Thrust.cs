@@ -15,7 +15,7 @@ public class Thrust : MonoBehaviour {
     }
 
     void Update () {
-        if (generatingThrust)
+		if (generatingThrust && Time.timeScale == 1)
         {
             rb.AddForce (GetMovement());            
         }
