@@ -6,6 +6,7 @@ TagManager:
   tags:
   - House
   - Yard
+  - Package
   layers:
   - Default
   - TransparentFX

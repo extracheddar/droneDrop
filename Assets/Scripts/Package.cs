@@ -6,7 +6,7 @@ public class Package : MonoBehaviour
 {
 	private Rigidbody rigidBody;
 	private GameController gameController;
-	private bool hasCollided = false;
+	private bool hasCollided;
 	
 	public void ApplyForce (Vector3 force) {
 		GetRigidBody().AddForce(force, ForceMode.Impulse);
@@ -38,8 +38,6 @@ public class Package : MonoBehaviour
 		}
 		
 		hasCollided = true;
-		Debug.Log("Collision!");
-		Debug.Log(other.gameObject.tag);
 		
 		GetGameController().AddScore(50);
 		Debug.Log(GetGameController().GetScore());
