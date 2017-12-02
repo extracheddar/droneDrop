@@ -14,7 +14,6 @@ public class PackageCollision : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other) 
 	{
-		GetGameController().AddScore(points);
-		Debug.Log(GetGameController().GetScore());
+		GetGameController().UpdateScore(points);
 	}
 }
