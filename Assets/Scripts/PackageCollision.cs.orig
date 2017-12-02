@@ -19,13 +19,17 @@ public class PackageCollision : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other) 
 	{
+<<<<<<< HEAD
+		GetGameController().UpdateScore(points);
+=======
 		if (!LotIsEnabled())
 		{
 			return;
 		}
 		
-		GetGameController().UpdateScore(points);
+		GetGameController().AddScore(points);
 		Debug.Log(GetGameController().GetScore());
+>>>>>>> fb762eea1533721eabf71e97a7c7dff7bb79deb8
 	}
 
 	private bool LotIsEnabled () {

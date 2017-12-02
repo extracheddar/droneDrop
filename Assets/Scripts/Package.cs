@@ -9,7 +9,8 @@ public class Package : MonoBehaviour
 	private bool hasCollided;
 	
 	public void ApplyForce (Vector3 force) {
-		GetRigidBody().AddForce(force, ForceMode.Impulse);
+		Vector3 scaledForce = Vector3.Scale(force, new Vector3(15f, 25f));
+		GetRigidBody().AddForce(scaledForce, ForceMode.Impulse);
 	}
 
 	private Rigidbody GetRigidBody () {
