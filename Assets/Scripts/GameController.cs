@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -18,7 +19,7 @@ public class GameController : MonoBehaviour
 	public Sprite xBox;
 	public int deliveriesNeeded = 3;
 	public int bullseyesNeeded = 3;
-
+	public int level = 1;
 
 	private int score = 0;
 	private int bullseyes = 0;
@@ -85,9 +86,7 @@ public class GameController : MonoBehaviour
 	}
 
 	public void Restart(bool showIntro){
-		CommonObjects.showIntro = showIntro;
-		Time.timeScale = 1;
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+		TransitionToNewScene(SceneManager.GetActiveScene().name, showIntro);
 	}
 
 	public void BeginGame(){
@@ -95,6 +94,17 @@ public class GameController : MonoBehaviour
 		playPauseButton.gameObject.SetActive (true);
 		scoreText.gameObject.SetActive (true);
 		CommonObjects.GetThrust ().EnableThrust ();
+	}
+
+	public void NextLevel () {
+		string nextLevel = "level_" + (level + 1);
+		TransitionToNewScene(nextLevel, true);
+	}
+
+	public void TransitionToNewScene (string sceneName, bool showIntro) {
+		CommonObjects.showIntro = showIntro;
+		Time.timeScale = 1;
+		SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 	}
 
 }
