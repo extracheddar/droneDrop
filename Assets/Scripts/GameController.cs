@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
 
 	void Start(){
 		Time.timeScale = 0;
+		directions.SetActive (true);
 	}
 
 	public int GetScore () {
