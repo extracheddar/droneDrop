@@ -8,7 +8,6 @@ public class GameController : MonoBehaviour
 	public Text doneScoreText;
 	public Text doneTitle;
 	public Button playPauseButton;
-	public Button restartButton;
 	public GameObject directions;
 	public GameObject done;
 	public Image doneObjectiveCheckBox;
@@ -28,7 +27,11 @@ public class GameController : MonoBehaviour
 
 	void Start(){
 		CommonObjects.Refresh();
-		directions.SetActive (true);
+		if (CommonObjects.showIntro) {
+			directions.SetActive (true);
+		} else {
+			BeginGame ();
+		}
 	}
 
 	public int GetScore () {
@@ -51,6 +54,7 @@ public class GameController : MonoBehaviour
 	public void EndGame () {
 		CommonObjects.GetThrust().DisableThrust();
 		scoreText.gameObject.SetActive (false);
+		playPauseButton.gameObject.SetActive (false);
 
 		if (deliveries >= deliveriesNeeded) {
 			doneTitle.text = "YOU WIN!";
@@ -71,12 +75,17 @@ public class GameController : MonoBehaviour
 	}
 
 	public void PlayPauseToggle(){
+		bool pause = (Time.timeScale == 0) ? false : true;
+		directions.SetActive (pause);
+		directions.transform.Find ("Btn_begin").gameObject.SetActive (!pause);
+		directions.transform.Find ("Btn_restart").gameObject.SetActive (pause);
 		Time.timeScale = (Time.timeScale == 0) ? 1 : 0;
 		playPauseButton.image.sprite = (playPauseButton.image.sprite == imagePause) ? imagePlay : imagePause;
-		restartButton.gameObject.SetActive (Time.timeScale == 0);
+
 	}
 
-	public void Restart(){
+	public void Restart(bool showIntro){
+		CommonObjects.showIntro = showIntro;
 		Time.timeScale = 1;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
 	}

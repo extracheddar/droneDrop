@@ -5,6 +5,7 @@ public static class CommonObjects
     private static GameController gameController;
     private static GameObject player;
     private static Thrust playerThrust;
+	public static bool showIntro = true;
 
     public static GameController GetGameController () {
         return gameController ?? (gameController = GameObject.FindGameObjectWithTag(TagConstants.GAME_CONTROLLER)
