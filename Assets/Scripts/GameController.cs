@@ -85,6 +85,11 @@ public class GameController : MonoBehaviour
 	}
 
 	public void NextLevel () {
+		if (!SucceededAtLevel())
+		{
+			return;
+		}
+		
 		string nextLevel = "level_" + (level + 1);
 		TransitionToNewScene(nextLevel, true);
 	}
@@ -97,14 +102,11 @@ public class GameController : MonoBehaviour
 	}
 
 	private void DetermineWinner () {
-		if (bullseyes >= bullseyesNeeded && deliveries >= deliveriesNeeded)
-		{
-			doneTitle.text = "YOU WIN!";
-		}
-		else
-		{
-			doneTitle.text = "YOU FAIL!";
-		}
+		doneTitle.text = SucceededAtLevel() ? "YOU WIN!" : "YOU FAIL!";
+	}
+
+	private bool SucceededAtLevel () {
+		return bullseyes >= bullseyesNeeded && deliveries >= deliveriesNeeded;
 	}
 
 }
