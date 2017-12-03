@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -12,14 +11,14 @@ public class GameController : MonoBehaviour
 	public GameObject directions;
 	public GameObject done;
 	public Image doneObjectiveCheckBox;
-	public Image doneLandingZoneCheckBox;
+	public Image doneBonusCheckBox;
 	public Sprite imagePlay;
 	public Sprite imagePause;
 	public Sprite checkBox;
 	public Sprite xBox;
 	public int deliveriesNeeded = 3;
 	public int bullseyesNeeded = 3;
-	public int level = 1;
+
 
 	private int score = 0;
 	private int bullseyes = 0;
@@ -41,7 +40,11 @@ public class GameController : MonoBehaviour
 
 	public int Bullseye(){
 		bullseyes += 1;
-		doneLandingZoneCheckBox.sprite = bullseyes >= bullseyesNeeded ? checkBox : xBox;
+		if (bullseyes >= bullseyesNeeded) {
+			doneBonusCheckBox.sprite = checkBox;
+		} else {
+			doneBonusCheckBox.sprite = xBox;
+		}
 		return bullseyes;
 	}
 
@@ -52,7 +55,13 @@ public class GameController : MonoBehaviour
 		if (points > 0) {
 			deliveries += 1;
 		}
-		doneObjectiveCheckBox.sprite = deliveries >= deliveriesNeeded ? checkBox : xBox;
+		if (deliveries >= deliveriesNeeded) {
+			doneTitle.text = "YOU WIN!";
+			doneObjectiveCheckBox.sprite = checkBox;
+		} else {
+			doneTitle.text = "YOU FAIL!";
+			doneObjectiveCheckBox.sprite = xBox;
+		}
 		return score;
 	}
 
@@ -60,7 +69,6 @@ public class GameController : MonoBehaviour
 		CommonObjects.GetThrust().DisableThrust();
 		scoreText.gameObject.SetActive (false);
 		playPauseButton.gameObject.SetActive (false);
-		DetermineWinner();
 		done.SetActive (true);
 	}
 
@@ -74,7 +82,9 @@ public class GameController : MonoBehaviour
 	}
 
 	public void Restart(bool showIntro){
-		TransitionToNewScene(SceneManager.GetActiveScene().name, showIntro);
+		CommonObjects.showIntro = showIntro;
+		Time.timeScale = 1;
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
 	}
 
 	public void BeginGame(){
@@ -82,29 +92,6 @@ public class GameController : MonoBehaviour
 		playPauseButton.gameObject.SetActive (true);
 		scoreText.gameObject.SetActive (true);
 		CommonObjects.GetThrust ().EnableThrust ();
-	}
-
-	public void NextLevel () {
-		string nextLevel = "level_" + (level + 1);
-		TransitionToNewScene(nextLevel, true);
-	}
-
-	public void TransitionToNewScene (string sceneName, bool showIntro) {
-		CommonObjects.showIntro = showIntro;
-		Time.timeScale = 1;
-		SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-		CommonObjects.Refresh();
-	}
-
-	private void DetermineWinner () {
-		if (bullseyes >= bullseyesNeeded && deliveries >= deliveriesNeeded)
-		{
-			doneTitle.text = "YOU WIN!";
-		}
-		else
-		{
-			doneTitle.text = "YOU FAIL!";
-		}
 	}
 
 }

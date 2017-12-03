@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465934, g: 0.49642956, b: 0.57482487, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465934, g: 0.49642956, b: 0.5748249, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1355,14 +1355,13 @@ MonoBehaviour:
   directions: {fileID: 1240908451}
   done: {fileID: 1237425986}
   doneObjectiveCheckBox: {fileID: 554775368}
-  doneLandingZoneCheckBox: {fileID: 131204419}
+  doneBonusCheckBox: {fileID: 0}
   imagePlay: {fileID: 21300000, guid: c3b6896635256443998aea6cd96f0f51, type: 3}
   imagePause: {fileID: 21300000, guid: 25dd1b7d075f449969e3f36760d1a507, type: 3}
   checkBox: {fileID: 21300000, guid: d6455483aec544342affb86b92c7c628, type: 3}
   xBox: {fileID: 21300000, guid: 38b5da4d55da94d6c9453b8e754ae025, type: 3}
   deliveriesNeeded: 18
   bullseyesNeeded: 10
-  level: 5
 --- !u!4 &492603511
 Transform:
   m_ObjectHideFlags: 0
