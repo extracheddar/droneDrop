@@ -8,12 +8,13 @@ public class PlayerDropScript : MonoBehaviour
 	public int rateOfDrop;
 	private DateTime lastDropped;
 	private Rigidbody rigidBody;
+	private AudioSource audioSource;
 
 	void Start () {
 		rigidBody = GetComponent<Rigidbody>();
+		audioSource = GetComponent<AudioSource> ();
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 1)
 		{
@@ -30,6 +31,7 @@ public class PlayerDropScript : MonoBehaviour
 		Package packageScript = (Package) package.GetComponent(typeof(Package));
 		packageScript.ApplyForce(rigidBody.velocity);
 		Destroy(package, 10f);
+		audioSource.Play ();
 	}
 
 	bool CanDropAnotherPackage () {
