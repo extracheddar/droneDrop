@@ -105,7 +105,11 @@ public class GameController : MonoBehaviour
 	}
 
 	private void DetermineWinner () {
-		doneTitle.text = SucceededAtLevel() ? "YOU WIN!" : "YOU FAIL!";
+		doneTitle.text = SucceededAtLevel() ? WinnerText() : "YOU FAIL!";
+	}
+
+	private string WinnerText () {
+		return level == 5 ? "GAME OVER, MAN." : "YOU WIN!";
 	}
 
 	private bool SucceededAtLevel () {
