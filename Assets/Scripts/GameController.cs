@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 	public Text scoreText;
 	public Button playPauseButton;
 	public Button restartButton;
-	public Button beginButton;
+	public GameObject directions;
 	public Sprite imagePlay;
 	public Sprite imagePause;
 
@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
 	}
 
 	public void BeginGame(){
-		beginButton.gameObject.SetActive (false);
+		directions.SetActive (false);
 		playPauseButton.gameObject.SetActive (true);
 		Time.timeScale = 1;
 	}
