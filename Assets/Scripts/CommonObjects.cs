@@ -19,4 +19,10 @@ public static class CommonObjects
         return playerThrust ?? (playerThrust = GetPlayer().GetComponent<Thrust>());
     }
 
+	public static void Refresh(){
+		gameController = null;
+		player = null;
+		playerThrust = null;
+	}
+
 }

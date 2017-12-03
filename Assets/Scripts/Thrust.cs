@@ -11,7 +11,7 @@ public class Thrust : MonoBehaviour
     public float forwardSpeed = 10f;
     
     private Rigidbody rb;
-    private bool generatingThrust = true;
+    private bool generatingThrust = false;
     private float minBounds;
     private float maxBounds;
 
