@@ -102,6 +102,7 @@ public class GameController : MonoBehaviour
 		CommonObjects.showIntro = showIntro;
 		Time.timeScale = 1;
 		SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+		CommonObjects.Refresh();
 	}
 
 }
