@@ -61,6 +61,10 @@ public class GameController : MonoBehaviour
 		scoreText.gameObject.SetActive (false);
 		playPauseButton.gameObject.SetActive (false);
 		DetermineWinner();
+		if (!SucceededAtLevel())
+		{
+			done.transform.Find("Continue").gameObject.GetComponent<Button>().interactable = false;
+		}
 		done.SetActive (true);
 	}
 
