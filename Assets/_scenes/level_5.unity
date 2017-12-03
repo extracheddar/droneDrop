@@ -43,7 +43,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -88,7 +88,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: bba419ee4567e429299fbb34078d53d3,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -1355,13 +1356,14 @@ MonoBehaviour:
   directions: {fileID: 1240908451}
   done: {fileID: 1237425986}
   doneObjectiveCheckBox: {fileID: 554775368}
-  doneBonusCheckBox: {fileID: 0}
+  doneLandingZoneCheckBox: {fileID: 0}
   imagePlay: {fileID: 21300000, guid: c3b6896635256443998aea6cd96f0f51, type: 3}
   imagePause: {fileID: 21300000, guid: 25dd1b7d075f449969e3f36760d1a507, type: 3}
   checkBox: {fileID: 21300000, guid: d6455483aec544342affb86b92c7c628, type: 3}
   xBox: {fileID: 21300000, guid: 38b5da4d55da94d6c9453b8e754ae025, type: 3}
   deliveriesNeeded: 18
   bullseyesNeeded: 10
+  level: 1
 --- !u!4 &492603511
 Transform:
   m_ObjectHideFlags: 0
