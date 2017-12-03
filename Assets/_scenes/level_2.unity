@@ -2668,6 +2668,10 @@ Prefab:
       propertyPath: m_Name
       value: 4R
       objectReference: {fileID: 0}
+    - target: {fileID: 1291284483761754, guid: 10f489eb716674c3d9538712914d5c75, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10f489eb716674c3d9538712914d5c75, type: 2}
   m_IsPrefabParent: 0
@@ -2910,6 +2914,15 @@ Prefab:
     - target: {fileID: 1119052039010994, guid: ce7892c648f2c4b57b009db9342b1ac3, type: 2}
       propertyPath: m_Name
       value: 2R
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232940504878702, guid: ce7892c648f2c4b57b009db9342b1ac3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65446609415647990, guid: ce7892c648f2c4b57b009db9342b1ac3,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce7892c648f2c4b57b009db9342b1ac3, type: 2}
@@ -3831,6 +3844,15 @@ Prefab:
       propertyPath: m_Name
       value: 13L
       objectReference: {fileID: 0}
+    - target: {fileID: 1526603873705408, guid: 1fa722e01a1484b70b6e4dac058f4acb, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65764413397294184, guid: 1fa722e01a1484b70b6e4dac058f4acb,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1fa722e01a1484b70b6e4dac058f4acb, type: 2}
   m_IsPrefabParent: 0
@@ -4510,6 +4532,15 @@ Prefab:
     - target: {fileID: 65420782643249534, guid: 86c04b96827184593929acc28e988cea,
         type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65944950172861492, guid: 86c04b96827184593929acc28e988cea,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632192818425458, guid: 86c04b96827184593929acc28e988cea, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
