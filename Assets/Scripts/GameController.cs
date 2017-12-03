@@ -41,11 +41,7 @@ public class GameController : MonoBehaviour
 
 	public int Bullseye(){
 		bullseyes += 1;
-		if (bullseyes >= bullseyesNeeded) {
-			doneLandingZoneCheckBox.sprite = checkBox;
-		} else {
-			doneLandingZoneCheckBox.sprite = xBox;
-		}
+		doneLandingZoneCheckBox.sprite = bullseyes >= bullseyesNeeded ? checkBox : xBox;
 		return bullseyes;
 	}
 
@@ -56,13 +52,7 @@ public class GameController : MonoBehaviour
 		if (points > 0) {
 			deliveries += 1;
 		}
-		if (deliveries >= deliveriesNeeded) {
-			doneTitle.text = "YOU WIN!";
-			doneObjectiveCheckBox.sprite = checkBox;
-		} else {
-			doneTitle.text = "YOU FAIL!";
-			doneObjectiveCheckBox.sprite = xBox;
-		}
+		doneObjectiveCheckBox.sprite = deliveries >= deliveriesNeeded ? checkBox : xBox;
 		return score;
 	}
 
@@ -70,6 +60,7 @@ public class GameController : MonoBehaviour
 		CommonObjects.GetThrust().DisableThrust();
 		scoreText.gameObject.SetActive (false);
 		playPauseButton.gameObject.SetActive (false);
+		DetermineWinner();
 		done.SetActive (true);
 	}
 
@@ -103,6 +94,17 @@ public class GameController : MonoBehaviour
 		Time.timeScale = 1;
 		SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 		CommonObjects.Refresh();
+	}
+
+	private void DetermineWinner () {
+		if (bullseyes >= bullseyesNeeded && deliveries >= deliveriesNeeded)
+		{
+			doneTitle.text = "YOU WIN!";
+		}
+		else
+		{
+			doneTitle.text = "YOU FAIL!";
+		}
 	}
 
 }
