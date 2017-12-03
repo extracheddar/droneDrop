@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
 
 	void Start(){
 		CommonObjects.Refresh();
+		directions.SetActive (true);
 	}
 
 	public int GetScore () {
@@ -46,7 +47,7 @@ public class GameController : MonoBehaviour
 		directions.SetActive (false);
 		playPauseButton.gameObject.SetActive (true);
 		scoreText.gameObject.SetActive (true);
-		CommonObjects.GetThrust().EnableThrust();
+		CommonObjects.GetThrust ().EnableThrust ();
 	}
 
 }
