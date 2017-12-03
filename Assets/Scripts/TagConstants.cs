@@ -6,5 +6,5 @@ public struct TagConstants
     public const string PLAYER = "Player";
     public const string GAME_CONTROLLER = "GameController";
     public const string PACKAGE = "Package";
-    public const string DROP_ZONE = "DropZone";
+    public const string LOT = "Lot";
 }
