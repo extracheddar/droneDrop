@@ -344,11 +344,6 @@ Prefab:
       propertyPath: m_Name
       value: 3L
       objectReference: {fileID: 0}
-    - target: {fileID: 114502561435620986, guid: 1fa722e01a1484b70b6e4dac058f4acb,
-        type: 2}
-      propertyPath: dropZoneEnabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1fa722e01a1484b70b6e4dac058f4acb, type: 2}
   m_IsPrefabParent: 0
@@ -1480,11 +1475,6 @@ Prefab:
     - target: {fileID: 1340058428893376, guid: 104e1133c42484ad0981005d612f8c19, type: 2}
       propertyPath: m_Name
       value: 2L
-      objectReference: {fileID: 0}
-    - target: {fileID: 114832925578258412, guid: 104e1133c42484ad0981005d612f8c19,
-        type: 2}
-      propertyPath: dropZoneEnabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 104e1133c42484ad0981005d612f8c19, type: 2}

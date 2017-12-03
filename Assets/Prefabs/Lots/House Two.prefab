@@ -63,7 +63,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4447526316033182
 Transform:
   m_ObjectHideFlags: 1
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515bdda3fde144e1f9661bf6584f592e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropZoneEnabled: 0
   landingZone: {fileID: 1636345660113762}
 --- !u!114 &114395202651845320
 MonoBehaviour:
