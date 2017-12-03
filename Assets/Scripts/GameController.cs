@@ -11,14 +11,14 @@ public class GameController : MonoBehaviour
 	public GameObject directions;
 	public GameObject done;
 	public Image doneObjectiveCheckBox;
-	public Image doneBonusCheckBox;
+	public Image doneLandingZoneCheckBox;
 	public Sprite imagePlay;
 	public Sprite imagePause;
 	public Sprite checkBox;
 	public Sprite xBox;
 	public int deliveriesNeeded = 3;
 	public int bullseyesNeeded = 3;
-
+	public int level = 1;
 
 	private int score = 0;
 	private int bullseyes = 0;
@@ -40,11 +40,7 @@ public class GameController : MonoBehaviour
 
 	public int Bullseye(){
 		bullseyes += 1;
-		if (bullseyes >= bullseyesNeeded) {
-			doneBonusCheckBox.sprite = checkBox;
-		} else {
-			doneBonusCheckBox.sprite = xBox;
-		}
+		doneLandingZoneCheckBox.sprite = bullseyes >= bullseyesNeeded ? checkBox : xBox;
 		return bullseyes;
 	}
 
@@ -55,13 +51,7 @@ public class GameController : MonoBehaviour
 		if (points > 0) {
 			deliveries += 1;
 		}
-		if (deliveries >= deliveriesNeeded) {
-			doneTitle.text = "YOU WIN!";
-			doneObjectiveCheckBox.sprite = checkBox;
-		} else {
-			doneTitle.text = "YOU FAIL!";
-			doneObjectiveCheckBox.sprite = xBox;
-		}
+		doneObjectiveCheckBox.sprite = deliveries >= deliveriesNeeded ? checkBox : xBox;
 		return score;
 	}
 
@@ -69,6 +59,11 @@ public class GameController : MonoBehaviour
 		CommonObjects.GetThrust().DisableThrust();
 		scoreText.gameObject.SetActive (false);
 		playPauseButton.gameObject.SetActive (false);
+		DetermineWinner();
+		if (!SucceededAtLevel())
+		{
+			done.transform.Find("Continue").gameObject.GetComponent<Button>().interactable = false;
+		}
 		done.SetActive (true);
 	}
 
@@ -82,9 +77,7 @@ public class GameController : MonoBehaviour
 	}
 
 	public void Restart(bool showIntro){
-		CommonObjects.showIntro = showIntro;
-		Time.timeScale = 1;
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+		TransitionToNewScene(SceneManager.GetActiveScene().name, showIntro);
 	}
 
 	public void BeginGame(){
@@ -92,6 +85,31 @@ public class GameController : MonoBehaviour
 		playPauseButton.gameObject.SetActive (true);
 		scoreText.gameObject.SetActive (true);
 		CommonObjects.GetThrust ().EnableThrust ();
+	}
+
+	public void NextLevel () {
+		if (!SucceededAtLevel())
+		{
+			return;
+		}
+		
+		string nextLevel = "level_" + (level + 1);
+		TransitionToNewScene(nextLevel, true);
+	}
+
+	public void TransitionToNewScene (string sceneName, bool showIntro) {
+		CommonObjects.showIntro = showIntro;
+		Time.timeScale = 1;
+		SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+		CommonObjects.Refresh();
+	}
+
+	private void DetermineWinner () {
+		doneTitle.text = SucceededAtLevel() ? "YOU WIN!" : "YOU FAIL!";
+	}
+
+	private bool SucceededAtLevel () {
+		return bullseyes >= bullseyesNeeded && deliveries >= deliveriesNeeded;
 	}
 
 }
