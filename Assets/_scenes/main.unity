@@ -1297,6 +1297,10 @@ Prefab:
       propertyPath: dropZoneEnabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1232940504878702, guid: ce7892c648f2c4b57b009db9342b1ac3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce7892c648f2c4b57b009db9342b1ac3, type: 2}
   m_IsPrefabParent: 0
@@ -2975,6 +2979,10 @@ Prefab:
       propertyPath: dropZoneEnabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1636345660113762, guid: 773d34049e1e64ea3a0f6f964199e206, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 773d34049e1e64ea3a0f6f964199e206, type: 2}
   m_IsPrefabParent: 0
@@ -3029,6 +3037,10 @@ Prefab:
     - target: {fileID: 114832925578258412, guid: 104e1133c42484ad0981005d612f8c19,
         type: 2}
       propertyPath: dropZoneEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913486023710456, guid: 104e1133c42484ad0981005d612f8c19, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3136,6 +3148,10 @@ Prefab:
     - target: {fileID: 114832925578258412, guid: 104e1133c42484ad0981005d612f8c19,
         type: 2}
       propertyPath: dropZoneEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913486023710456, guid: 104e1133c42484ad0981005d612f8c19, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4082,6 +4098,10 @@ Prefab:
     - target: {fileID: 114535138860979324, guid: 10f489eb716674c3d9538712914d5c75,
         type: 2}
       propertyPath: dropZoneEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291284483761754, guid: 10f489eb716674c3d9538712914d5c75, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6601,6 +6621,10 @@ Prefab:
       propertyPath: dropZoneEnabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1526603873705408, guid: 1fa722e01a1484b70b6e4dac058f4acb, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1fa722e01a1484b70b6e4dac058f4acb, type: 2}
   m_IsPrefabParent: 0
@@ -7004,6 +7028,10 @@ Prefab:
     - target: {fileID: 114086515939069458, guid: 86c04b96827184593929acc28e988cea,
         type: 2}
       propertyPath: dropZoneEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200238465517016, guid: 86c04b96827184593929acc28e988cea, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
