@@ -6,6 +6,7 @@ public class Objectives : MonoBehaviour
 	public GameObject deliveriesNumberObject;
 	public GameObject landingZonesAnimation;
 	public GameObject landingZonesNumberObject;
+	public GameObject landingZoneCheckboxObject;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,10 @@ public class Objectives : MonoBehaviour
 
 		if (requiredLandingZones < 1)
 		{
+			if (landingZoneCheckboxObject != null)
+			{
+				landingZoneCheckboxObject.SetActive(false);
+			}
 			landingZonesAnimation.SetActive(false);
 			landingZonesNumberObject.SetActive(false);
 		}

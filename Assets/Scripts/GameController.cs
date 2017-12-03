@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
 	public GameObject directions;
 	public GameObject done;
 	public Image doneObjectiveCheckBox;
-	public Image doneBonusCheckBox;
+	public Image doneLandingZoneCheckBox;
 	public Sprite imagePlay;
 	public Sprite imagePause;
 	public Sprite checkBox;
@@ -42,9 +42,9 @@ public class GameController : MonoBehaviour
 	public int Bullseye(){
 		bullseyes += 1;
 		if (bullseyes >= bullseyesNeeded) {
-			doneBonusCheckBox.sprite = checkBox;
+			doneLandingZoneCheckBox.sprite = checkBox;
 		} else {
-			doneBonusCheckBox.sprite = xBox;
+			doneLandingZoneCheckBox.sprite = xBox;
 		}
 		return bullseyes;
 	}
