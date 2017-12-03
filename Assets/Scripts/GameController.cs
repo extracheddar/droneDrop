@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -11,14 +12,14 @@ public class GameController : MonoBehaviour
 	public GameObject directions;
 	public GameObject done;
 	public Image doneObjectiveCheckBox;
-	public Image doneBonusCheckBox;
+	public Image doneLandingZoneCheckBox;
 	public Sprite imagePlay;
 	public Sprite imagePause;
 	public Sprite checkBox;
 	public Sprite xBox;
 	public int deliveriesNeeded = 3;
 	public int bullseyesNeeded = 3;
-
+	public int level = 1;
 
 	private int score = 0;
 	private int bullseyes = 0;
@@ -41,9 +42,9 @@ public class GameController : MonoBehaviour
 	public int Bullseye(){
 		bullseyes += 1;
 		if (bullseyes >= bullseyesNeeded) {
-			doneBonusCheckBox.sprite = checkBox;
+			doneLandingZoneCheckBox.sprite = checkBox;
 		} else {
-			doneBonusCheckBox.sprite = xBox;
+			doneLandingZoneCheckBox.sprite = xBox;
 		}
 		return bullseyes;
 	}
@@ -82,9 +83,7 @@ public class GameController : MonoBehaviour
 	}
 
 	public void Restart(bool showIntro){
-		CommonObjects.showIntro = showIntro;
-		Time.timeScale = 1;
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+		TransitionToNewScene(SceneManager.GetActiveScene().name, showIntro);
 	}
 
 	public void BeginGame(){
@@ -92,6 +91,18 @@ public class GameController : MonoBehaviour
 		playPauseButton.gameObject.SetActive (true);
 		scoreText.gameObject.SetActive (true);
 		CommonObjects.GetThrust ().EnableThrust ();
+	}
+
+	public void NextLevel () {
+		string nextLevel = "level_" + (level + 1);
+		TransitionToNewScene(nextLevel, true);
+	}
+
+	public void TransitionToNewScene (string sceneName, bool showIntro) {
+		CommonObjects.showIntro = showIntro;
+		Time.timeScale = 1;
+		SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+		CommonObjects.Refresh();
 	}
 
 }
