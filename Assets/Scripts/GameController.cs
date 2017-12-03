@@ -79,9 +79,8 @@ public class GameController : MonoBehaviour
 		directions.SetActive (pause);
 		directions.transform.Find ("Btn_begin").gameObject.SetActive (!pause);
 		directions.transform.Find ("Btn_restart").gameObject.SetActive (pause);
-		Time.timeScale = (Time.timeScale == 0) ? 1 : 0;
+		Time.timeScale = !pause ? 1 : 0;
 		playPauseButton.image.sprite = (playPauseButton.image.sprite == imagePause) ? imagePlay : imagePause;
-
 	}
 
 	public void Restart(bool showIntro){
