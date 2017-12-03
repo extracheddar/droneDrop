@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour
 	public void BeginGame(){
 		directions.SetActive (false);
 		playPauseButton.gameObject.SetActive (true);
+		scoreText.gameObject.SetActive (true);
 		Time.timeScale = 1;
 	}
 
