@@ -9,6 +9,9 @@ public class PackageCollision : MonoBehaviour
 		if (other.gameObject.CompareTag(TagConstants.PACKAGE)) {
 			other.gameObject.tag = TagConstants.UNTAGGED;
 			CommonObjects.GetGameController().UpdateScore (points);
+			if(gameObject.CompareTag(TagConstants.LANDING_ZONE)){
+				CommonObjects.GetGameController ().Bullseye ();
+			}
 		}
 	}
 
