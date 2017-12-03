@@ -40,22 +40,21 @@ public class GameController : MonoBehaviour
 
 	public int Bullseye(){
 		bullseyes += 1;
+		if (bullseyes >= bullseyesNeeded) {
+			doneBonusCheckBox.sprite = checkBox;
+		} else {
+			doneBonusCheckBox.sprite = xBox;
+		}
 		return bullseyes;
 	}
 
 	public int UpdateScore(int points){
-		deliveries += 1;
 		score += points;
 		scoreText.text = "Score: " + score;
 		doneScoreText.text = "Your Score: " + score;
-		return score;
-	}
-
-	public void EndGame () {
-		CommonObjects.GetThrust().DisableThrust();
-		scoreText.gameObject.SetActive (false);
-		playPauseButton.gameObject.SetActive (false);
-
+		if (points > 0) {
+			deliveries += 1;
+		}
 		if (deliveries >= deliveriesNeeded) {
 			doneTitle.text = "YOU WIN!";
 			doneObjectiveCheckBox.sprite = checkBox;
@@ -63,14 +62,13 @@ public class GameController : MonoBehaviour
 			doneTitle.text = "YOU FAIL!";
 			doneObjectiveCheckBox.sprite = xBox;
 		}
+		return score;
+	}
 
-		if (bullseyes >= bullseyesNeeded) {
-			doneBonusCheckBox.sprite = checkBox;
-		} else {
-			doneBonusCheckBox.sprite = xBox;
-		}
-
-
+	public void EndGame () {
+		CommonObjects.GetThrust().DisableThrust();
+		scoreText.gameObject.SetActive (false);
+		playPauseButton.gameObject.SetActive (false);
 		done.SetActive (true);
 	}
 
