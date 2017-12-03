@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4066374903547674}
-  - component: {fileID: 114832925578258412}
   m_Layer: 0
   m_Name: House One
   m_TagString: Lot
@@ -170,19 +169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 100
---- !u!114 &114832925578258412
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1340058428893376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 515bdda3fde144e1f9661bf6584f592e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropZoneEnabled: 0
-  landingZone: {fileID: 1913486023710456}
 --- !u!212 &212467219271620924
 SpriteRenderer:
   m_ObjectHideFlags: 1
