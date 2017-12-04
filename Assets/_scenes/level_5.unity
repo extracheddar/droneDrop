@@ -302,7 +302,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: packages
+  m_Text: deliveries
 --- !u!222 &28370200
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3228,7 +3228,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: packages
+  m_Text: deliveries
 --- !u!222 &1028211772
 CanvasRenderer:
   m_ObjectHideFlags: 0
