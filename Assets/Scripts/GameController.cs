@@ -87,6 +87,15 @@ public class GameController : MonoBehaviour
 		CommonObjects.GetThrust ().EnableThrust ();
 	}
 
+	public void LevelOne () {
+		if (!SucceededAtLevel())
+		{
+			return;
+		}
+		
+		TransitionToNewScene("level_1", true);
+	}
+
 	public void NextLevel () {
 		if (!SucceededAtLevel())
 		{
