@@ -18,7 +18,7 @@ public class PlayerDropScript : MonoBehaviour
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 1)
 		{
-			if (CanDropAnotherPackage())
+			if (CanDropAnotherPackage() && CommonObjects.GetThrust().IsGeneratingThrust())
 			{
 				DropPackage();
 			}

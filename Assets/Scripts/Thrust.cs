@@ -67,4 +67,8 @@ public class Thrust : MonoBehaviour
     public void EnableThrust () {
         generatingThrust = true;
     }
+
+    public bool IsGeneratingThrust () {
+        return generatingThrust;
+    }
 }
